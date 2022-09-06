@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         #btn2{background-color:red}
+
+         .color{background-color: black;color: red;}
+         .dim{border: 1px solid red;padding: 100px;;}
+    </style>
+    <!-- <script> alert("hello1")</script> -->
+    <!-- <script defer src="js/script.js"></script> -->
+    <!-- <script src="js/script.js"></script> -->
+</head>
+<body>
+    <h1 id="h">Javascript</h1>
+
+    <ul>
+        <li class="cl pi">list</li>
+        <li class="cl">list 1</li>
+        <li id="list2">list 2</li>
+        <li class="cl pi">list 3</li>
+    </ul>
+
+
+    <h2 class="intro">heading 1</h2>
+  
+    <div id="div1">
+        <p class="intro">phara 1</p>
+        <h2 class="intro">heading 2</h2>
+        <p>phara 2</p>
+        <h2>heading 3</h2>
+        <p class="intro">phara 3</p>
+    </div>
+    
+    
+    <h2>heading 1</h2>
+  
+    <ul> ul1
+        <li>list 1</li>
+        <li id="li">list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+    </ul>
+    
+    <ul id="ul"> ul2
+        <li>list a</li>
+        <li>list b</li>
+        <li>list c</li>
+        <li>list d</li>
+    </ul>
+
+
+    <div id="ptag">
+        <h2>this is a heading</h2>
+        <p id="p1">this is a p tag</p>
+    </div>
+
+
+
+    <ul id="list">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+    </ul>
+    <!-- end video 50 -->
+
+
+    <!-- video 51 -->
+    <button id="btn">Send</button>
+    
+    <!-- video 52 -->
+    <button id="btn1">Send</button>
+    
+    <!-- video 53 -->
+    <button id="btn2">Send</button>
+    
+    <!-- video 54 -->
+    <div id="box" class="">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, vero.</p>
+    </div>
+    
+    <!-- video 55 -->
+    <div id="box1" class="color dim">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, vero.</p>
+    </div>
+    
+
+
+    
+    <script>
+        
+        // video 55
+        let box1= document.getElementById("box")
+        let height = box1.offsetHeight // includes border 
+        let width  = box1.offsetWidth
+        
+        console.log(height)
+        console.log(width)
+        console.log("")
+
+        let height1 = box1.clientHeight // excludes border
+        let width1  = box1.clientWidth
+
+        console.log(height1)
+        console.log(width1)
+        console.log("")
+        
+        
+        // video 54
+        let box= document.getElementById("box")
+        box.className += " dim" // space dim // add dim
+        console.log(box.className)
+        console.log("")
+        
+        console.log(box.classList) // creates array
+        
+        box.classList.add("color") // add color
+        
+        box.classList.remove("color") // remove color
+        
+        // box.classList.replace("color","dim") // replace color
+        
+        let result = box.classList.contains("color") // true false
+        console.log(result)
+        
+        box.classList.toggle("color") // oppsite (!not) true false
+
+        console.log("")
+
+        for(let i of box.classList){console.log(i)} 
+        console.log("")
+
+
+        // video 53
+        let btn2 = document.getElementById("btn2")
+        let css  = getComputedStyle(btn2)
+        // console.log(css) // get all attributes
+        console.log("")
+        console.log(css.backgroundColor) // get particular attribute
+        console.log("")
+        
+
+        // video 52
+        let btn1 = document.getElementById("btn1")
+        btn1.style.cssText =  "color:red" // dot dont over write js
+        btn1.style.cssText += "color:red" // dot dont over write html n js
+        
+        btn1.setAttribute("style","background-color:skyblue") // over write both
+        btn1.style.color="red"  // dot dont over write html or js
+        
+        
+        // video 51
+        let btn = document.getElementById("btn")
+        btn.setAttribute("name","form")
+        btn.setAttribute("class","button")
+        
+        let val= btn.getAttribute("name")
+        console.log(val)
+
+        let va1= btn.removeAttribute("name")
+
+        let val2= btn.hasAttribute("name")
+        console.log(val2)
+
+        console.log("")
+        
+        
+
+        // end video 50
+        let store = document.getElementById("list2");
+        
+        store.innerHTML= "<p>hello</p>"
+        
+        console.log(store.innerHTML); // to get the value
+        
+        
+        
+        let elm = document.getElementsByClassName("cl pi");
+        
+        // console.log(elm.innerHTML); // to get the value
+        
+        for(let i=0; i<elm.length; i++){
+            elm[i].innerHTML= "<p>hi</p>"
+            
+        };
+        
+        
+        let rag = document.getElementById("div1");
+        
+        let tag = rag.getElementsByTagName("h2");
+        
+        for(let i=0; i<tag.length; i++){
+            tag[i].innerHTML="head";
+        }
+        
+        
+        
+        // most important
+        
+        
+        let sag = document.querySelectorAll("p.intro");//id, class, element
+        
+        console.log(sag);
+        
+        for(let i=0; i<sag.length; i++){
+            sag[i].innerHTML="head";
+        }
+        
+        
+    
+        
+        
+        // let li = document.getElementById("li");  //child to parent
+        // let prt = li.parentElement;
+        // prt.innerHTML="hello"
+        // console.log(prt)
+        
+        
+        let ul = document.getElementById("ul");  //parent to child
+        let prt1 = ul.firstElementChild;//first
+        
+        prt1.innerHTML="hello"
+        console.log(prt1)
+        
+        
+        let prt2 = ul.children;  // full list
+        console.log(prt2)
+        
+        
+        let mi = document.getElementById("li");  //sibling
+        let prt5 = mi.previousElementSibling;  //next
+        console.log(prt5)
+        
+        
+        // let p = document.getElementById("ptag");
+        // let pt = p.innerHTML
+        // console.log(pt) // fetch
+        // p.innerHTML="this is a phara"  // set
+        
+
+
+
+        // let p1 = document.getElementById("ptag");
+        
+        
+        let h1 = document.createElement('h1'); //create element with method
+        // p1.appendChild(h1);  //add element
+        
+        let text = document.createTextNode("this is a h1 tag"); // create value
+        h1.appendChild(text);  //add value
+        
+
+        document.body.appendChild(h1); // add the element to the body
+
+
+
+
+
+
+        h1.textContent="content added" //create element with property
+
+
+        let phr = document.getElementById("p1");
+        console.log(phr.textContent);  // read element
+
+
+        // let list = document.getElementById("list");
+        // let newlist = document.createElement("li");
+        // list.appendChild(newlist);
+
+        // let newtext = document.createTextNode("newlist");
+        // newlist.appendChild(newtext);
+        
+        
+        
+        
+        
+        
+        // let list1 = document.getElementById("list");//call id
+        // let newlist1 = document.createElement("li");//create element by method
+        // newlist1.textContent="list new";//create value with property
+        
+        // let pos = list1.firstElementChild.nextElementSibling.nextElementSibling; //position of child
+        // list1.insertBefore(newlist1, pos) //setting the new element
+
+
+        let a = document.body;
+        let b = document.createElement("h1");
+        b.textContent = "new heading";
+
+        let c = document.getElementById("list");
+        a.insertBefore(b,c)
+
+
+
+        let ullist = document.getElementById("list");
+        // let ulelm = ullist.firstElementChild.nextElementSibling;
+        // ullist.removeChild(ulelm);
+
+
+
+
+        // let clone = ullist.cloneNode(true);//false
+        // document.body.appendChild(clone);
+
+        // clone.id="list2";
+
+        // ullist.id="list1";
+
+
+
+        let crt = document.createElement("li")
+        crt.textContent = "New"
+
+        let rpl = ullist.firstElementChild.nextElementSibling
+
+
+        ullist.replaceChild(crt,rpl)
+
+
+// most important
+
+        let hgf = document.getElementById("ptag");
+        
+        hgf.insertAdjacentHTML("beforeend", "<h1>hi<h1>")
+        // beforebegin, afterbegin, beforeend, afterend
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+
+
+
+
+    <!-- <script> alert("hello2")</script> -->
+    <!-- <script src="js/script.js"></script> -->
+    <!-- <script src="js/script.js"></script> ( off pg1 ) -->
+    <!-- <script src="js/datatypes n operaters.js"></script> ( off pg2 ) -->
+    <!-- <script src="js/ifelse n case.js"></script> ( off pg3 ) -->
+    <!-- <script src="js/loop break continue.js"></script> ( off pg4 ) -->
+    <!-- <script src="js/array functions.js"></script> ( off pg5 ) -->
+    <!-- <script src="js/objects.js"></script> ( off pg6 ) -->
+    <!-- <script src="js/other.js"></script> -->
+    <script src="js/other2.js"></script>
+
+
+    
+
+
+</body>
+</html>

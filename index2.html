@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img{height: 100px;width: 100px;}
+        
+        #box{height: 100px;width: 100px;background-color:blueviolet;}
+
+        /* #div{height: 2000px;} */   /* for scroll */
+
+        #div{background: red;padding: 50px;}
+
+        body{background-color: gray;}
+
+    </style>
+</head>
+<body>
+    <!-- video 56 -->
+    <button id="btn">Click Here</button> <!-- onclick="btn1()" -->
+    <br><br><br>
+    
+    <button id="btn2" onmousemove="m_over()" onmouseout="m_out()">Over Out</button>
+    <br><br><br>
+    
+    <!-- video 57 -->
+    <button id="btn3">Dual</button>
+    <br><br><br>
+    
+    <!-- video 58 -->
+    <img  id="img" src="https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="123"> <!-- onload -->
+    
+    <!-- video 59 -->
+    <div id="box"
+    onclick      = "fun1()"
+    oncontextmenu= "fun2()"
+    ondblclick   = "fun3()" 
+    onmouseup    = "fun4()" 
+    onmousedown  = "fun5()" 
+    onmouseover  = "fun6()" 
+    onmouseout   = "fun7()" >
+    </div>
+
+    <!-- video 60 nothing here -->
+
+    <!-- video 61 -->
+    <div id="div1"><h1>hello</h1></div>
+    
+    <!-- video 62 -->
+    <form action="">
+        <input type="text" id="inp">
+    </form>
+    <br><br><br><br><br>
+    
+    <!-- video 63 -->
+    <span id="div"><button id="bttn">Submit</button></span>
+    
+    <!-- video 64  -->
+    <a href="https://www.google.com" target="blank" id="anchor">Google</a>
+    
+    <br><br><br><br><br>
+    <form action="">
+        <input type="text">
+        <input type="submit" id="sub">
+    </form>
+    <br><br><br>
+    
+    <!-- video 65 nothing here -->
+    
+    <!-- video 66 -->
+    <button id="google">Google</button>
+    <button id="yahoo">Yahoo</button>
+    <button id="close">Close</button>
+    <br><br><br>
+    
+    <!-- video 67 -->
+    <button id="time">Time</button>
+    
+    <!-- video 68 -->
+    <button id="redirect" onclick="fuun()"c>Redirect</button>
+
+    <!-- video 69 nothing here -->
+
+    <!-- video 70 nothing here -->
+    
+    <br><br><br><br><br>
+
+    <script>
+        
+        // video 70 //user device screen details
+        console.log(screen.height)
+        console.log(screen.width)
+        console.log(screen.colorDepth)
+        // console.log(screen.orientation)
+        // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        console.log(screen.orientation.type)
+        console.log("")
+        
+
+        // video 69 //user browser details
+        console.log(navigator.appName)
+        console.log("")
+        console.log(navigator.appVersion)
+        console.log("")
+        console.log(navigator.appCodeName)
+        console.log("")
+        console.log(navigator.cookieEnabled)
+        console.log("")
+        console.log(navigator.userAgent)
+        console.log("")
+        console.log(navigator.platform)
+        console.log("")
+        console.log(navigator.javaEnabled())
+        console.log("")
+        
+        
+        // video 68
+        
+        // get-location
+        console.log(location.href)     // current website url
+        console.log("")
+        console.log(location.pathname) // current file path
+        console.log("")
+        console.log(location.protocol) // http or https
+        console.log("")
+        
+        // set-location
+        // function fuun(){window.location="https://www.google.com"} // method 1
+        // function fuun(){location.href="https://www.google.com"}  // method 2
+        function fuun(){location.assign("https://www.google.com")} // method 3
+        
+        // function fuun(){location.replace("https://www.google.com")}//no history
+        // function fuun(){location.reload()} //page reload
+
+
+
+        // video 67
+        
+        // let timeout=setTimeout(funn,2000)
+        // function funn(){alert()}
+        // if(){clearTimeout(timeout)}
+        
+        let interval = setInterval(funn,2000)
+        function funn(){console.log("setinterval")}
+
+        let time = document.getElementById("time")
+        time.addEventListener("click",function(){clearInterval(interval)})
+
+
+        // video 66 //user browser screen details
+        console.log(window.innerHeight)
+        console.log(window.innerWidth)
+        console.log("")
+        console.log(window.outerHeight)
+        console.log(window.outerWidth)
+        console.log("")
+        
+        let google = document.getElementById("google")
+        let yahoo  = document.getElementById("yahoo")
+        let close  = document.getElementById("close")
+      
+        let url      = "https://www.google.com"
+        let name     = "window"
+        let features = "height=500,width=500"
+
+        let url2     = "https://www.yahoo.com"
+        let win;
+
+        google.addEventListener("click",function(){win = window.open(url,name,features)})
+        yahoo.addEventListener("click",function(){window.open(url2,name)})
+        close.addEventListener("click",function(){win.close()})
+
+
+        // video 65
+        var xyz = 101001000
+        console.log(window.xyz) // <<<<<<<<<<<<<<<
+        
+        let abc = 101001000
+        console.log(window.abc) // <<<<<<<<<<<<<<<
+        
+        function func(){console.log("hello")}
+        window.func()           // <<<<<<<<<<<<<<<
+
+        // window.alert()       // <<<<<<<<<<<<<<<
+        // window.prompt()      // <<<<<<<<<<<<<<<
+        // window.confirm()     // <<<<<<<<<<<<<<<
+
+        console.log("")
+
+        
+        // video 64
+        let anchor=document.getElementById("anchor")
+        anchor.addEventListener("click",function(e){console.log("google");
+        e.preventDefault();})
+
+        let sub=document.getElementById("sub")
+        sub.addEventListener("click",function(a){
+        a.preventDefault();})
+        sub.addEventListener("dblclick",function(){console.log("dblckick")})
+
+
+        // video 63
+        let div=document.getElementById("div")
+        let bttn=document.getElementById("bttn")
+
+        document.body.addEventListener("click",x,true)
+        div.addEventListener("click",a,true)
+        bttn.addEventListener("click",b,true)
+
+        function x(){console.log("body")}
+        function a(){console.log("div")}
+        function b(){console.log("bttn")}
+
+
+        // video 62 // input box
+        let inp = document.getElementById("inp")
+        inp.addEventListener("focus" ,function(){inp.style.background = "red"})
+        inp.addEventListener("blur"  ,function(){inp.style.background = "white"})
+        inp.addEventListener("change",function(){console.log(this.value)})//before
+        inp.addEventListener("input",function(){console.log(this.value)}) //-same
+
+
+        // video 61
+        
+        window.addEventListener("scroll",function(){console.log("scrolling")})
+        
+        window.addEventListener("scroll",function()
+        {if(window.pageYOffset > 50){document.body.style.background = "red"}
+        else{document.body.style.background = "white"}
+        })
+        
+        // notworking
+        // window.addEventListener("wheel",function(event)
+        // {if(event.deltaY < 0){console.log("scrolling up");}
+        // else if(event.deltaY > 0){console.log("scrolling down");}
+        // });
+
+
+
+        // video 60 // full keyboard control // no html or css
+        
+        // window.addEventListener("keydown",checkkey) // keyup for release any btn
+        // function checkkey(event){console.log(event.key)}
+
+
+        // video 59
+        // function fun1(){alert("single release click")}
+        function fun2(){alert("right release click")} 
+        // function fun3(){alert("double click")}
+        function fun4(){alert("single release click")}
+        // function fun5(){alert("single immediate click")}
+        function fun6(){alert("mouse over")}
+        function fun7(){alert("mouse out")}
+
+
+
+        // video 58
+        window.addEventListener("DOMContentLoaded",function(){console.log("DOM Tree Created")})
+        
+        window.addEventListener("load",function(){console.log("image loaded")})
+                    // or //
+        // document.getElementById("img")
+        // img.addEventListener("load",function(){console.log("image loaded")})
+        
+
+        // video 57
+        function click1(){console.log("click1")}
+        function click2(){console.log("click2")}
+       
+        btn3.addEventListener("click",click1)
+        btn3.addEventListener("click",click2)
+
+        btn3.removeEventListener("click",click1) // doesnt remove inline
+
+
+        // video 56
+        function btn1(){console.log("onclick")}
+        // or //
+        // document.getElementById("btn")
+        // btn.addEventListener("click",btn1)
+        // or //
+        btn.addEventListener("click",function (){console.log("onclick")})
+            
+        function m_over(){console.log("onmouseover")}
+        function m_out() {console.log("onmouseout")} 
+    
+    </script>
+</body>
+</html>
